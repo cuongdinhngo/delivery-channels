@@ -47,7 +47,7 @@ return [
 
 ```
 
-##Sample Usage
+## Sample Usage
 
 
 In the Laravel notification class, it contains a `via` method and a variable number of message building methods (such as toMail or toDatabase) that convert the notification to a message optimized for that particular channel.
@@ -66,7 +66,7 @@ public function via($notifiable)
 
 ```
 
-###Twilio Channel
+### Twilio Channel
 
 You have to define a `toTwilio` method on the notification class. This method will receive a $notifiable entity and should return a `Cuongnd88\DeliveryChannel\Messages\TwilioMessage` instance or array. Let's take a look at an example `toTwilio` method:
 
