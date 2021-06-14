@@ -16,7 +16,7 @@ class DeliveryChannelServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // $this->mergeConfigFrom(__DIR__ . '/../config/channels.php', 'delivery-channels');
+        $this->mergeConfigFrom(__DIR__.'/../config/channels.php', 'channels');
 
         Notification::resolved(function (ChannelManager $service) {
             $service->extend('twilio', function ($app) {
@@ -25,11 +25,15 @@ class DeliveryChannelServiceProvider extends ServiceProvider
         });
     }
 
-    protected function publishConfig()
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
     {
-        logger(__METHOD__);
         $this->publishes([
-            __DIR__ . '/../config/channels.php' => config_path('channels.php'),
-        ], 'channel-config');
+            __DIR__.'/../config/channels.php' => $this->app->configPath('channels.php'),
+        ], 'config');
     }
 }
