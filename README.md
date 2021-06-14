@@ -103,3 +103,9 @@ You have to define a `toTwilio` method on the notification class. This method wi
         ];           ->body('OTP AUTH is '.$this->otp);
     }
 ```
+
+## Demo
+
+This is demo soure code.
+[Laravel Colab](https://github.com/cuongnd88/lara-colab/blob/master/alpha/app/Authentication/SendOtp.php)
+
